@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Update Magazine') }}
+            {{ __('Editar Revista') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __('Update Magazine') }}
+                <div class="btn-title">{{ __('Editar Revista') }}</div>
                     @if($errors->any())
                     <div class="alert-danger"></div>
                             @foreach($errors->all() as $e)
@@ -23,16 +23,16 @@
                     <form action="{{route('magazines.update', $magazine)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
-                        <label>{{ __('Year') }} </label>
+                        <label>{{ __('Año') }} </label>
                         <input type="text" class="form-control" name="ano" value="{{ old('ano',$magazine->ano) }}" placeholder="2024"><br>
 
-                        <label>{{ __('Month') }}</label>
+                        <label>{{ __('Mes') }}</label>
                         <input type="text" class="form-control" name="mes" value="{{ old('mes',$magazine->mes) }}" placeholder="01"><br>
 
-                        <label>{{ __('Title') }} </label>
+                        <label>{{ __('Titulo') }} </label>
                         <input type="text" class="form-control" name="titulo" value="{{ old('titulo',$magazine->titulo) }}" placeholder="Revista 1"><br>
 
-                        <label>{{ __('Description') }}</label>
+                        <label>{{ __('Descripcion') }}</label>
                         <!--  <input type="text" class="form-control" name="descripcion" value="{{ old('descripcion',$magazine->descripcion) }}" placeholder="Descripciones">-->
                         <textarea rows="4" class="form-control" name="descripcion" value="{{ old('descripcion',$magazine->descripcion) }}" placeholder="Descripciones">
                         {{ old('descripcion',$magazine->descripcion) }}
@@ -42,11 +42,11 @@
                         <label>{{ __('URL') }} </label>
                         <input type="text" class="form-control" name="url" value="{{ old('url',$magazine->url) }}" placeholder="https://www.fegasacruz.org"><br>
 
-                        <label>{{ __('Image') }} </label>
+                        <label>{{ __('Imagen') }} </label>
                         <img src="{{ URL::asset('images')}}/{{old('imagen',$magazine->image) }}" alt="Imagen Revista" width="150" height="160">
                         <input type="file" class="form-control" name="image" value="{{ old('image',$magazine->image) }}"><br>
 
-                       <button class="btn btn-success mt-3" type="submit">{{ __('Update Magazine') }}</button>
+                       <button class="btn btn-success mt-3" type="submit">{{ __('Actualizar Revista') }}</button>
                     </form>
                 </div>
             </div>

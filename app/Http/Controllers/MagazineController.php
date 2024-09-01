@@ -17,7 +17,7 @@ class MagazineController extends Controller
     public function index()
     {
         //$magazines=Magazine::all();  //aqui seleccionamos los datos de la tabla magazines
-        $magazines=Magazine::orderBy('ano','desc')->orderBy('mes','desc')->paginate(10);  //aqui seleccionamos los datos de la tabla magazines
+        $magazines=Magazine::withTrashed()->orderBy('ano','desc')->orderBy('mes','desc')->paginate(10);  //aqui seleccionamos los datos de la tabla magazines
         $title ='Listado de Portafolios Estadísticos y Revistas';
         return view('magazines.index',compact('title','magazines'));
     }

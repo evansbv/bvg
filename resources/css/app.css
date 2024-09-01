@@ -9,14 +9,17 @@
     @apply px-6 py-2 bg-gray-300 font-medium text-gray-600 uppercase border leading-10 -tracking-wider
 }
 .table tr{
-    @apply  border 
+    @apply  border px-2 py-2 
 }
 .table td{
     @apply px-6 py-4 whitespace-normal
 }
 
+.btn-title{
+    @apply border rounded-full px-3 bg-green-600 text-white font-bold w-full text-center
+}
 .btn{
-    @apply border rounded px-3 py-2 text-white font-bold inline-block
+    @apply border rounded px-3 py-2 text-white font-bold inline-block my-2
 }
 .btn-danger{
     @apply bg-red-600 hover:bg-red-800 border-red-600
@@ -31,5 +34,5 @@
     @apply bg-yellow-600 hover:bg-yellow-800 border-yellow-600
 }
 .form-control{
-    @apply block rounded-sm shadow-sm   bg-purple-50 w-full
+    @apply block rounded-sm shadow-sm   bg-gray-200 w-full
 }
