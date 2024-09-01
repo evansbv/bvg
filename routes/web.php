@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MagazineController;
+use App\Http\Controllers\BulletineController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('magazines', MagazineController::class);
     Route::post('/magazines/{magazine}/restore', [MagazineController::class, 'restore'])->name('magazines.restore');
+    Route::resource('bulletines', BulletineController::class);
+    Route::post('/bulletines/{bulletine}/restore', [BulletineController::class, 'restore'])->name('bulletines.restore');
 });
 
 

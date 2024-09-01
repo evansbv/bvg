@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Magazine;
+use App\Models\Bulletine;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         ]);*/
         $this->call(UsersSeeder::class);
         $this->call(MagazinesSeeder::class);
+        $this->call(BulletinesSeeder::class);
     }
 }
