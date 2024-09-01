@@ -18,13 +18,13 @@ class UsersSeeder extends Seeder
             'name' => 'Erwin Erick Ureña Inarra',
             'email' => 'ericksapiens@gmail.com',
             'password' => bcrypt('12345678'),
-            'rol' => 'user',
+            'rol' => 'admin',
         ]);
         User::insert([
             'name' => 'Evans Balcazar Veizaga',
             'email' => 'evansbv@gmail.com',
             'password' => bcrypt('12345678'),
-            'rol' => 'user',
+            'rol' => 'admin',
         ]);
     }
 }

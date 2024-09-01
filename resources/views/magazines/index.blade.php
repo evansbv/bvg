@@ -12,20 +12,34 @@
                     {{ __($title) }}
                         @if(Auth::user()->isAdmin())
                         <p>
-                        <a href="{{route('magazines.create')}}" >{{ __('*New*') }}</a>
+                          <a href="{{route('magazines.create')}}" >{{ __('*New*') }}</a>
                         </p>
                         @endif
                         <ul>
                             @foreach ($magazines as $magazine)
                                 <li>{{ $magazine->ano }}  {{ $magazine->mes}}  {{ $magazine->titulo}}
+                                @if(!$magazine->trashed())
                                     <a href="{{route('magazines.show',[$magazine->id])}}"  >{{ __('*Details*') }}</a>
-                                    @if(Auth::user()->isAdmin())
-                                    <a href="{{route('magazines.edit',[$magazine->id])}}"  >{{ __('*Edit*') }}</a>
+                                @endif
+                                @if(Auth::user()->isAdmin())
+                                    @if(!$magazine->trashed())    
+                                       <a href="{{route('magazines.edit',[$magazine->id])}}"  >{{ __('*Edit*') }}</a>
+                                       form action="{{  route('magazines.destroy',[$magazine->id]) }} " method="post">
+                                            {{ csrf_field() }}
+            				                {{ method_field('DELETE') }}
+                                            <button type="submit" >Borrar</button>
+                                       </form>
+                                       @else
+                                          <form action="{{  route('magazines.restore',[$magazine->id]) }} " method="post">
+                                               {{ csrf_field() }}
+                                               <button type="submit" >Restaurar</button>
+                                          </form>
+                                       @endif
                                     @endif
                                 </li>
                             @endforeach
                         </ul>
-                        {{ $magazines->links() }}
+                        {{$magazines->links()}}
                 </div>
             </div>
         </div>

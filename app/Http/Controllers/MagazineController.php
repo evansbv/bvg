@@ -102,6 +102,16 @@ class MagazineController extends Controller
      */
     public function destroy(Magazine $magazine)
     {
-        //
+        //dd($magazine);
+        $magazine->delete();
+        return  redirect()->route('magazines.index');
+    }
+    public function restore($id)
+    {
+        //dd($id);
+        $magazine=Magazine::withTrashed()->find($id);
+        //dd($magazine);
+        $magazine->restore(); // This restores the soft-deleted post
+        return  redirect()->route('magazines.index');
     }
 }

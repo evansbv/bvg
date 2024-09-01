@@ -16,8 +16,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('magazines', MagazineController::class);
+    Route::post('/magazines/{magazine}/restore', [MagazineController::class, 'restore'])->name('magazines.restore');
 });
 
-Route::resource('magazines', MagazineController::class);
 
 require __DIR__.'/auth.php';

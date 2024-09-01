@@ -13,4 +13,7 @@ class Magazine extends Model
     protected $fillable = [
         'user_id', 'titulo', 'descripcion', 'ano', 'mes', 'url', 'image'
     ];
+    protected $casts = [
+        'deleted_at' => 'datetime',
+    ];
 }
